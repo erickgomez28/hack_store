@@ -32,10 +32,11 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-# Use Annotate for identify attributes
-gem 'annotate'
+
 # Use Paperclip for manipulate the images
 gem "paperclip", "~> 5.0.0"
+
+gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -46,6 +47,12 @@ group :development, :test do
 end
 
 group :development do
+  gem 'active_model_serializers'
+  gem 'haml-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # Use Annotate for identify attributes
+  gem 'annotate'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
