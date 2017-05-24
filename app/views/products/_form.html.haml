@@ -1,0 +1,19 @@
+= form_with model: @product, local: true do |form|
+	= form.label :name
+	= form.text_field :name
+	= form.label :price
+	= form.text_field :price
+	= form.label :quantity
+	= form.text_field :quantity
+	= form.label :size
+	= form.text_field :size
+	= form.label :color
+	= form.text_field :color
+	= form.label :model
+	= form.text_field :model
+	= form.label :category
+	= form.text_field :category.name
+	
+	= form.submit
+
+= link_to 'Volver', stores_path	

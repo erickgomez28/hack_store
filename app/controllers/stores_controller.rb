@@ -8,6 +8,11 @@ class StoresController < ApplicationController
     end
   end
 
+  def show
+    @store = Store.find_by(id: params[:id])
+    response_format @store      
+  end
+
   def new 
     @store = Store.new
   end
@@ -15,7 +20,10 @@ class StoresController < ApplicationController
   def create
     @store = Store.new(store_params)
     if @store.save
-      response_format @store
+      respond_to do |format|
+        format.html { redirect_to stores_path, notice: 'person was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -24,15 +32,25 @@ class StoresController < ApplicationController
     response_format @store
   end
 
+  def update
+    @store = Store.find_by(id: params[:id])
+    if @store.update(store_params)
+      respond_to do |format|
+        format.html { redirect_to stores_path, notice: 'person was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    end
+  end
+
   def destroy 
     @store = Store.find_by(id: params[:id])
     @store.destroy
+    respond_to do |format|
+      format.html { redirect_to stores_path, notice: 'person was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
-  def show
-    @store = Store.find_by(id: params[:id])
-    response_format @store      
-  end
 
   private
 

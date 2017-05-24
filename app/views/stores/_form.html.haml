@@ -1,0 +1,10 @@
+= form_with model: @store, local: true do |form|
+	= form.label :name
+	= form.text_field :name
+
+	= form.label :kind
+	= form.text_field :kind
+
+	= form.submit
+
+= link_to 'Volver', stores_path

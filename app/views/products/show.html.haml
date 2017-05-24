@@ -1,0 +1,25 @@
+%h1 Product #{@product.name}
+%ul
+	%li
+		%strong Name:
+		= @product.name
+	%li
+		%strong Price:
+		= @product.price
+	%li
+		%strong quantity:
+		= @product.quantity
+	%li
+		%strong size:
+		= @product.size
+	%li
+		%strong color:
+		= @product.color
+	%li
+		%strong model:
+		= @product.model
+	%li
+		%strong	category:
+		= @product.category.name
+
+= link_to 'Volver', store_path(@product.store)
