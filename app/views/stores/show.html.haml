@@ -4,8 +4,14 @@
 		%strong
 			Rubro: 
 		= @store.kind
+	%li
+		%strong
+			Estado:
+		= @store.statu
 = link_to 'Volver', stores_path 
-- if @store.products.present?
+
+- if @store.products.present? && @store.statu == 'principal'
+	=link_to 'new product', new_store_product_path(@store)
 	%h2 Productos
 	%table 
 		%thead

@@ -5,6 +5,9 @@
 	= form.label :kind
 	= form.text_field :kind
 
+	= form.label :statu
+	= form.select :status, Store.status.to_a
+	
 	= form.submit
 
 = link_to 'Volver', stores_path

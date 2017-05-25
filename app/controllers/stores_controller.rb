@@ -3,14 +3,14 @@ class StoresController < ApplicationController
   def index
     @stores = Store.all
     respond_to do |format|
-      format.html# index.html.erb
+      format.html 
       format.json { render json: @stores}
     end
   end
 
   def show
     @store = Store.find_by(id: params[:id])
-    response_format @store      
+    response_format @store
   end
 
   def new 
@@ -29,7 +29,6 @@ class StoresController < ApplicationController
 
   def edit
     @store = Store.find_by(id: params[:id])
-    response_format @store
   end
 
   def update
