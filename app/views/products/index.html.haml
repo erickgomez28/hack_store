@@ -1,0 +1,13 @@
+%h1 Products
+%table 
+	%thead
+		%tr
+			%th Name
+			%th price
+	%tbody
+	- @products.each do |product|
+		%tr
+			%td
+				= product.name
+			%td
+				= product.price

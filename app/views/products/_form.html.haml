@@ -1,0 +1,24 @@
+= form_with model: [@store, @product], local: true do |form|
+	
+	= form.label  :name
+	= form.text_field :name
+
+	= form.label :Price
+	=form.text_field :price
+
+	= form.label :quantity
+	=form.text_field :quantity
+
+	= form.label :size
+	=form.text_field :size
+
+	= form.label :color
+	=form.text_field :color
+
+	= form.label :model
+	=form.text_field :model
+
+	= form.label :category
+	= form.select :category, Category.all.collect {|c| [ c.name, c.id ] }
+
+	= form.submit
