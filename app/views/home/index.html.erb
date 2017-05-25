@@ -1,0 +1,9 @@
+<h1>Bienvidos a WEM</h1>
+
+
+
+<% if current_user %>
+  Te logueaste como: <%= current_user.email %>
+<%end%>
+<!-- Cerrar Sesion -->
+<%= link_to 'cerrar', destroy_user_session_path, method: 'delete' %>
