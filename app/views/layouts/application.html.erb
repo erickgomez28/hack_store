@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HackStore</title>
+    <title>MarketPlace WEM</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <% flash.each do |name,msg|  %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-    <%= yield %>
-  </body>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
+	<body>
+		<%= render 'shared/header' %>
+		<%= render 'shared/stores_container' %>
+		<%= render 'shared/content' %>
+	</body>
 </html>
