@@ -2,18 +2,18 @@
 %ul
 	%li
 		%strong
-			Rubro: 
+			Rubro:
 		= @store.kind
 	%li
 		%strong
 			Estado:
 		= @store.statu
-= link_to 'Volver', stores_path 
+= link_to 'Volver', stores_path
 
-- if @store.products.present? && @store.statu == 'principal'
+- if @store.products.present? or @store.statu == 'principal'
 	=link_to 'new product', new_store_product_path(@store)
 	%h2 Productos
-	%table 
+	%table
 		%thead
 			%tr
 				%th Name
@@ -45,4 +45,3 @@
 					=link_to "Show", store_product_path(product)
 					=link_to "Edit", edit_store_product_path(product)
 					=link_to "Destroy", store_product_path(product), method: :destroy
-
