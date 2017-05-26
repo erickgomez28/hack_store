@@ -20,6 +20,20 @@
 #
 
 class ProductSerializer < ActiveModel::Serializer
-  attributes :name,:price,:quantity,:size, :color,:model,:store_id
+  attributes :name, :price, :quantity
   has_one :category
+  attribute :category_name
+  attribute :description
+  
+  def category_name
+    object.category.name
+  end
+  def description
+		{
+			model: object.model,
+			color: object.color,
+			size: object.size
+		}
+  end
+
 end
