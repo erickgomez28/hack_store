@@ -1,24 +1,29 @@
-%h1 Tiendas
+%h1 Tiendas Afiliadas a WEM
 
 %table
   %thead
     %tr
-      %th Name
-      %th Kind
-      %th Statu
-      %th option
+      %th Nombre
+      %th Rama
+      %th Tipo
+      %th Opciones
   %tbody
   - @stores.each do |store|
-    %tr
-      %td
-        = store.name
-      %td
-        = store.kind
-      %td
-        = store.statu
-      %td
-        = link_to 'Show', store_path(store)
-        = link_to 'Edit', edit_store_path(store)
-        = link_to 'Destroy', store_path(store), method: :delete, data: {confirm: 'Are you sure?'}
+    - if store.statu != :principal
+      %tr
+        %td
+          = store.name
+        %td
+          = store.kind
+        %td
+          = store.statu
+        %td
+          / = link_to image_tag('show.svg'), store_path(store), :class => 'icon'
+          = link_to 'Show', store_path(store)
+          = link_to 'Editar', edit_store_path(store)
+          = link_to 'Eliminar', store_path(store), method: :delete, data: {confirm: 'Are you sure?'}
+    -else
+      = render 'No existen Tiendas Afiliadas'
 
-= link_to 'New store', new_store_path
+= link_to 'Afiliar Tienda', new_store_path
+= link_to 'Volver', store_path(@stores.first)

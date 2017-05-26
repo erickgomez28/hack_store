@@ -3,7 +3,6 @@
 		<hr>
 		<% if current_user %>
 		  <%= current_user.email %>
-			<hr>
 			<!-- Cerrar Sesion -->
 			<%= link_to 'Cerrar Sesión', destroy_user_session_path, method: 'delete' %>
 	  <%else%>

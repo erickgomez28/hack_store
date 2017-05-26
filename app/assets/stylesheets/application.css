@@ -21,7 +21,7 @@ body{
 	margin:0px;
 	font-family: Palatino, serif;
 	font-variant: small-caps;
-	font-size: 14px;
+	font-size: 18px;
 	color: #002D27;/*#B96C6F;*/
 	background-color: #fff; 
 
@@ -29,6 +29,7 @@ body{
 
 .header{
 	width: 100%;
+	min-width: 900px;
 	height: 100px;
 	color: #FFDEAD;
 	background-color: #088A84;
@@ -43,8 +44,6 @@ body{
 	padding-left: 10px;
 	padding-right: 10px;
 	text-align: center;
-	/*font-size: 18px;*/
-	/* background-color: rgba(0,0,0,0.1); */
 	position: absolute;
 	top: 5%;
 	right: 50px;
@@ -61,7 +60,6 @@ body{
   padding-top: 3px;
   padding-left: 10px;
   padding-bottom: 10px;
-  font-size: 18px;
   position: absolute;
   border-radius: 15px;
   top: 50px;
@@ -90,10 +88,15 @@ body{
 
 .content{
 	width: calc(100% - 200px);	
+	min-width: 598px;
 	height: calc(100vh - 100px);
-	padding:50px;
-	background-color: rgba(255, 222, 173, 0.44); /*#CCDEAD *//*#BC8F8F*/
-	float: left;
+	padding:150px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #088A84;
+	font-size: 20px;
+	background-color: rgba(255, 222, 173, 0.44);
+	float: right;
 }
 
 .character {
@@ -192,7 +195,6 @@ body{
 	position: absolute;
 	top: 75px;
 	left:45px;
-	font-size: 18px;
 	opacity:0;
 }
 
@@ -211,4 +213,66 @@ body{
 	left:180px;
 	animation: text-color 10s infinite alternate;
 	animation-delay: 4s;
+}
+
+input{
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+select{
+	margin: 5px;
+}
+
+h1{
+	text-align: center;
+	margin-right: 200px;
+	color: #088A84;
+}
+
+label{
+	font-size: 20px;
+}
+
+.products_list{
+  width: 100%;
+  min-width: 325px;
+  padding:5px;
+  padding-left: 18px;
+  height: 80%;
+  border: 1px solid; /*Borrar*/
+}
+
+.item{
+	width: 155px;
+  height: 155px;
+  margin:5px;
+  border: 1px solid #FFDEAD;
+  border-style: dotted;
+  background-color: rgba(0,0,0,0.05);
+  float:left;
+}
+.item img{
+	width: 120px;
+	height: 120px;
+	margin-left: 17px;
+	margin-top: 17px;
+	background-color: black; /*Borrar*/
+}
+.pagination{
+	float:right;
+	margin-right: 20px;
+}
+
+tr{
+	width: 100%;
+	height: 1.5em;
+}
+
+/*td{
+	width: 200px;
+}*/
+
+th{
+	width: 200px;
+	text-align: left;
 }

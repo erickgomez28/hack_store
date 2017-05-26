@@ -1,13 +1,15 @@
 = form_with model: @store, local: true do |form|
-	= form.label :name
-	= form.text_field :name
+	%label
+		= form.label 'Nombre'
+		%br
+		= form.text_field :name
+	%br
+	%label
+		= form.label 'Rama'
+		%br
+		= form.text_field :kind
+	%br
 
-	= form.label :kind
-	= form.text_field :kind
-
-	= form.label :statu
-	= form.select :status, Store.status.to_a
-	
-	= form.submit
+	= form.submit 'Guardar'
 
 = link_to 'Volver', stores_path
