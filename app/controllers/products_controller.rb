@@ -1,37 +1,5 @@
 class ProductsController < ApplicationController
   def index
-
-    rest = RestClient.get('192.168.1.108:9292/stores.json')
-    @products = JSON.parse(rest) if rest
-
-    @products = @products['products']
-    
-    @products.each do |p|
-       p.symbolize_keys!
-       p.category = 1
-       # @products << product(p)
-
-
-    end
-
-    # payload = JSON.parse(rest)
-    # @store = Store.find_by(id: params[:store_id])
-    # @products = @store.products
-    # respond_to do |format|
-    #   format.html
-    #   format.json { head :no_content }
-    # end
-
-    # @products = []
-    # rest = RestClient.get('192.168.1.108:9292/products.json')
-    # buy = payload['url']
-    # buy = RestClient.post(buy, quantity: 2)
-    # render json: buy
-    # payload.each do |product|
-    #   payload.map!(&:symbolize_keys!)
-    #   product.slice!(:name, :quantity)
-    #   @products.push(Product.new(product))
-    # end
   end
 
   def show
@@ -46,17 +14,17 @@ class ProductsController < ApplicationController
   def new
     @store = Store.find_by(id: params[:store_id])
     @product = @store.products.build
+    @categories = Category.all.collect{|c| [c.name, c.id] }
   end
 
   def create
     @store = Store.find_by(id: params[:store_id])
-    @product = @store.products.build(product_params)
 
+    @product = @store.products.build(product_params)
+    @product.category_id = 1
+    
     if @product.save
        redirect_to @store
-      # respond_to do |format|
-      #   format.html { redirect_to @store, notice: 'product was successfully destroyed.' }
-      # end
     elsif
       render :new
     end
@@ -69,23 +37,16 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @store = Store.find_by(id: params[:store_id])
+    @store = Store.where(@stores.where(statu: 0).first)
     @product = @store.products.find_by(id: params[:id])
-    if @product.update(product_params)
-      respond_to do |format|
-        format.html { redirect_to @store, notice: 'product was successfully destroyed.' }
-        format.json { head :no_content }
-      end
-    end
+    @product.quantity -= 1
+    @product.update(product_params)
   end
 
   def destroy
     @store = Store.find_by(id: params[:store_id])
     @product = @store.products.find_by(id: params[:id])
     @product.destroy
-    # if @product.destroy
-    #   format.html { redirect_to store_product_path(@store), notice: 'product was successfully destroyed.' }
-    # end
   end
 
   private

@@ -16,9 +16,8 @@
 	=form.text_field :color
 
 	= form.label :model
-	=form.text_field :model
-
-	= form.label :category
-	= form.select :category, Category.all.collect {|c| [ c.name, c.id ] }
+	= form.text_field :model
 
 	= form.submit
+/ = form.select :category, options_for_select(@categories)
+/ = form.label :category
