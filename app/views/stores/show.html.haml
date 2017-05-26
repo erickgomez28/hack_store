@@ -1,0 +1,47 @@
+%h1 Tienda #{@store.name}
+%ul
+	%li
+		%strong
+			Rubro:
+		= @store.kind
+	%li
+		%strong
+			Estado:
+		= @store.statu
+= link_to 'Volver', stores_path
+
+- if @store.products.present? or @store.statu == 'principal'
+	=link_to 'new product', new_store_product_path(@store)
+	%h2 Productos
+	%table
+		%thead
+			%tr
+				%th Name
+				%th Price
+				%th quantity
+				%th size
+				%th color
+				%th model
+				%th category
+				%th options
+		%tbody
+		- @store.products.each do |product|
+			%tr
+				%td
+					= product.name
+				%td
+					= product.price
+				%td
+					= product.quantity
+				%td
+					= product.size
+				%td
+					= product.color
+				%td
+					= product.model
+				%td
+					= product.category.name
+				%td
+					=link_to "Show", store_product_path(product)
+					=link_to "Edit", edit_store_product_path(product)
+					=link_to "Destroy", store_product_path(product), method: :destroy

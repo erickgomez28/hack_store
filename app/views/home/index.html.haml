@@ -1,0 +1,44 @@
+%h1 Bienvidos a WEM
+
+%h1 Products
+- @products.each do |product|
+  .product
+    %strong
+      Name:
+    = product[:name]
+    %br
+    %strong
+      Price:
+    = product[:price]
+    %br
+    %strong
+      Quantity:
+    = product[:quantity]
+    %br
+    %strong 
+      Kind:
+    = product[:kind]
+    %br
+    %br
+    %strong
+      Description
+    %br
+    - product[:description].each do |key, value|
+      %strong
+        =key
+        %br
+      =value
+      %br
+    %br
+    %strong 
+      Store
+    = product[:store][:name]
+    %br
+    %strong
+      Rubro
+    = product[:store][:kind]
+
+    %br
+    %br
+    = form_with url: "123", local: true do |form|
+      =form.submit 'Comprar'

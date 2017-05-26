@@ -1,0 +1,25 @@
+%h1 Tiendas
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Kind
+      %th Statu
+      %th option
+  %tbody
+  - @stores.each do |store|
+    %tr
+      %td
+        = store.name
+      %td
+        = store.kind
+      %td
+        = store.statu
+      %td
+        = link_to 'Show', store_path(store)
+        = link_to 'Edit', edit_store_path(store)
+        = link_to 'Destroy', store_path(store), method: :delete, data: {confirm: 'Are you sure?'}
+        = link_to 'Productos', store_products_path(store)
+
+= link_to 'New store', new_store_path

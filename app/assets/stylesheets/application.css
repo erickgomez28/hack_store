@@ -13,3 +13,202 @@
  *= require_tree .
  *= require_self
  */
+*{
+	box-sizing: border-box;
+}
+
+body{												
+	margin:0px;
+	font-family: Palatino, serif;
+	font-variant: small-caps;
+	font-size: 14px;
+	color: #002D27;/*#B96C6F;*/
+	background-color: #fff; 
+
+}
+
+.header{
+	width: 100%;
+	height: 100px;
+	color: #FFDEAD;
+	background-color: #088A84;
+	position: relative;
+	top: 0px;
+}
+
+.login_container{
+	width: 200px;
+	height: calc(85% - 5px);
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	/*font-size: 18px;*/
+	/* background-color: rgba(0,0,0,0.1); */
+	position: absolute;
+	top: 5%;
+	right: 50px;
+}
+
+.error_login{
+	float: left;
+	color: red
+}
+
+.search{
+  width: 400px;
+  height: 30px;
+  padding-top: 3px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  font-size: 18px;
+  position: absolute;
+  border-radius: 15px;
+  top: 50px;
+  left: calc(50% - 250px);
+  background-color: rgba(0,0,0,0.1);
+}
+
+.stores_container{
+	width: 200px;
+	height: calc(100vh - 100px);
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: rgba(255, 222, 173, 0.6);
+	float: left;
+}
+.stores_container h1{
+	margin: 0px;
+	padding-right: 10px;
+}
+
+.stores_container h4{
+	margin: 0px;
+	padding-right: 10px;
+	text-align: center;
+}
+
+.content{
+	width: calc(100% - 200px);	
+	height: calc(100vh - 100px);
+	padding:50px;
+	background-color: rgba(255, 222, 173, 0.44); /*#CCDEAD *//*#BC8F8F*/
+	float: left;
+}
+
+.character {
+  padding: 10px;
+  width: 60px;
+  height: 50px;
+	position: absolute;
+	top: 25%;
+	left: 50px;
+}
+
+.character div{
+	width: 8px;
+	padding-top: 50px;
+	animation: color 10s infinite;
+}
+
+.character div:nth-child(1){
+  position: absolute;
+  left: 35px;
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px;
+  top: 2px;
+  transform: rotate(160deg);
+}
+
+.character div:nth-child(2){
+  position: absolute;
+  right: 35px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 5px;
+  top: 2px;
+  transform: rotate(-160deg);
+
+}
+
+.character div:nth-child(3){
+	position: absolute;
+	bottom: 0;
+	left:6px;
+}
+
+.character div:nth-child(4){
+	position: absolute;
+	bottom: 0;
+	right: 6px;
+}
+
+#character1 {	
+  animation: rotate_char1 2s infinite alternate;
+}
+
+#character2 {
+	animation: rotate_char2 2s infinite alternate;
+	animation-delay: 3s;
+}
+#character3 {
+	animation: rotate_char3 2s infinite alternate;
+	animation-delay: 3s;
+}
+
+@keyframes color{
+	100%{background-color: #FFDEAD}
+	50%{background-color: #002D27}
+	0%{background-color: #FFDEAD}
+}
+
+@keyframes rotate_char1{
+	100%{transform: rotate(0deg)}
+}
+
+@keyframes rotate_char2{
+	0%{transform: rotate(0deg);}
+	50%{left: 110px;
+			transform: rotate(90deg);}
+	100%{left: 110px;
+			transform: rotate(90deg);}
+}
+
+@keyframes rotate_char3{
+	0%{transform: rotate(0deg);}
+	50%{left: 110px;
+			transform: rotate(90deg);}
+	100%{transform: rotate(180deg);
+			left: 170px;}
+}
+
+@keyframes text-color{
+	100%{color: #FFDEAD; opacity: 0}
+	50%{color: #FFDEAD; opacity:1}
+	0%{color: #002D27; opacity:0}
+}
+
+.name div{
+	width: 100px;
+	position: absolute;
+	top: 75px;
+	left:45px;
+	font-size: 18px;
+	opacity:0;
+}
+
+.name div:nth-child(1){
+	animation: text-color 10s infinite alternate;
+	animation-delay: 2s;
+}
+
+.name div:nth-child(2){
+	left:120px;
+	animation: text-color 10s infinite alternate;
+	animation-delay: 3s;
+}
+
+.name div:nth-child(3){
+	left:180px;
+	animation: text-color 10s infinite alternate;
+	animation-delay: 4s;
+}
