@@ -4,7 +4,7 @@ class StoresController < ApplicationController
     @stores = Store.all
     respond_to do |format|
       format.html 
-      format.json { render json: @stores}
+      format.json { render json: (@stores.where(statu: 0).first)}
     end
   end
 
