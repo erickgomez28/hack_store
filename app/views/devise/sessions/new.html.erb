@@ -14,13 +14,17 @@
   <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :remember_me, 'Recordar mis datos' %>
     </div>
   <% end -%>
-
+  <div class="error_login">
+    <% flash.each do |name,msg|  %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+  </div>
+  <br>
   <div class="actions">
     <%= f.submit "Iniciar Sesión" %>
   </div>
 <% end %>
-
-<%= redirect_to 'root' %>
+<%=  render 'devise/shared/links' %>

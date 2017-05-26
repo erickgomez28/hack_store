@@ -37,17 +37,46 @@ body{
 }
 
 .login_container{
-	width:300px;
+	width: 200px;
 	height: calc(85% - 5px);
-	padding: 5px; 
+	padding: 5px;
 	padding-left: 10px;
 	padding-right: 10px;
-	background-color: rgba(0,0,0,0.1);
+	text-align: center;
+	/*font-size: 18px;*/
+	/* background-color: rgba(0,0,0,0.1); */
 	position: absolute;
-	top: 10%;
+	top: 5%;
 	right: 50px;
 }
 
+.error_login{
+	float: left;
+	color: red
+}
+
+.search{
+  width: 400px;
+  height: 30px;
+  padding-top: 3px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  font-size: 18px;
+  position: absolute;
+  border-radius: 15px;
+  top: 50px;
+  left: calc(50% - 250px);
+  background-color: rgba(0,0,0,0.1);
+}
+
+.stores_container{
+	width: 200px;
+	height: calc(100vh - 100px);
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: rgba(255, 222, 173, 0.6);
+	float: left;
+}
 .stores_container h1{
 	margin: 0px;
 	padding-right: 10px;
@@ -59,18 +88,10 @@ body{
 	text-align: center;
 }
 
-.stores_container{
-	width: 200px;
-	height: calc(100vh - 100px);
-	padding-left: 20px;
-	padding-right: 20px;
-	background-color: rgba(255, 222, 173, 0.6);
-	float: left;
-}
-
 .content{
 	width: calc(100% - 200px);	
 	height: calc(100vh - 100px);
+	padding:50px;
 	background-color: rgba(255, 222, 173, 0.44); /*#CCDEAD *//*#BC8F8F*/
 	float: left;
 }
@@ -191,4 +212,3 @@ body{
 	animation: text-color 10s infinite alternate;
 	animation-delay: 4s;
 }
-_________________

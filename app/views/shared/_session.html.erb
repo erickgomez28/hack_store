@@ -1,14 +1,12 @@
 <div class="login_container">
-	<div>
+		Bienvenido 
+		<hr>
 		<% if current_user %>
-		  Bienvenido <%= current_user.email %>
-			<br>
+		  <%= current_user.email %>
+			<hr>
 			<!-- Cerrar Sesion -->
-			<div>
-				<%= link_to 'Cerrar Sesión', destroy_user_session_path, method: 'delete' %>
-			</div>
+			<%= link_to 'Cerrar Sesión', destroy_user_session_path, method: 'delete' %>
 	  <%else%>
 	  	<%= link_to 'Iniciar Sesión', new_user_session_path, method: 'get' %>
 		<%end%>
-	</div>
 </div>
