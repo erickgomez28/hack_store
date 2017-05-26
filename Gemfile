@@ -35,8 +35,9 @@ gem 'jbuilder', '~> 2.5'
 #INSTALANDO DEVISE
 gem 'devise'
 
+#INSTALANDO RestClient
 
-
+gem 'rest-client'
 # Use Paperclip for manipulate the images
 gem "paperclip", "~> 5.0.0"
 
