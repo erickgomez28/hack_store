@@ -1,23 +1,37 @@
 class ProductsController < ApplicationController
   def index
-  	# @store = Store.find_by(id: params[:store_id])
-  	# @products = @store.products
-  	# respond_to do |format|
+
+    rest = RestClient.get('192.168.1.108:9292/stores.json')
+    @products = JSON.parse(rest) if rest
+
+    @products = @products['products']
+    
+    @products.each do |p|
+       p.symbolize_keys!
+       p.category = 1
+       # @products << product(p)
+
+
+    end
+
+    # payload = JSON.parse(rest)
+    # @store = Store.find_by(id: params[:store_id])
+    # @products = @store.products
+    # respond_to do |format|
     #   format.html
     #   format.json { head :no_content }
-  	# end
+    # end
 
-    @products = []
-    rest = RestClient.get('192.168.1.108:3000/products.json')
-    payload = JSON.parse(rest) if rest
+    # @products = []
+    # rest = RestClient.get('192.168.1.108:9292/products.json')
     # buy = payload['url']
     # buy = RestClient.post(buy, quantity: 2)
     # render json: buy
-    payload.each do |product|
-      payload.map!(&:symbolize_keys!)
-      product.slice!(:name, :quantity)
-      @products.push(Product.new(product))
-    end
+    # payload.each do |product|
+    #   payload.map!(&:symbolize_keys!)
+    #   product.slice!(:name, :quantity)
+    #   @products.push(Product.new(product))
+    # end
   end
 
   def show

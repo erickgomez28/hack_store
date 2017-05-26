@@ -22,12 +22,13 @@
 class ProductSerializer < ActiveModel::Serializer
   attributes :name, :price, :quantity
   has_one :category
-  attribute :category_name
+  attribute :kind 
   attribute :description
   
-  def category_name
+  def kind
     object.category.name
   end
+  
   def description
 		{
 			model: object.model,
