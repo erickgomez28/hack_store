@@ -17,6 +17,7 @@
 #  image_content_type :string
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  buy_url            :string
 #
 
 class ProductSerializer < ActiveModel::Serializer

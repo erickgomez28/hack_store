@@ -17,13 +17,24 @@
 #  image_content_type :string
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  buy_url            :string
 #
 
 class Product < ApplicationRecord
   belongs_to :store
   belongs_to :category
 
+  after_save :add_buy_path
+
+  # before_validation :add_category
+
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }#default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  private
+
+  def add_buy_path 
+  	self.buy_url = "/stores/#{self.store_id}/products/#{self.id}"
+  end
 
 end
