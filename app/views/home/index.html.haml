@@ -23,12 +23,8 @@
     %strong
       Description
     %br
-    - product[:description].each do |key, value|
-      %strong
-        =key
-        %br
-      =value
-      %br
+    = product[:description]
+    %br
     %br
     %strong 
       Store

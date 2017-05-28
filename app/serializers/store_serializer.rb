@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  statu      :integer
+#  url        :string
 #
 
 class StoreSerializer < ActiveModel::Serializer

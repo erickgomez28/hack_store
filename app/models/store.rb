@@ -8,12 +8,19 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  statu      :integer
+#  url        :string
 #
 
 class Store < ApplicationRecord
 	has_many :products
-	enum statu: { neighbor: 1, principal: 0 }
+	enum statu: [ :principal, :neighbour ]
 	# validates :name, :kind, presente: :true
+	before_create :add_statu
 
+	private
+	def add_statu
+		
+		self.statu = 1
+	end
 
 end

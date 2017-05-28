@@ -14,7 +14,6 @@ class ProductsController < ApplicationController
   def new
     @store = Store.find_by(id: params[:store_id])
     @product = @store.products.build
-    @categories = Category.all.collect{|c| [c.name, c.id] }
   end
 
   def create
@@ -37,20 +36,26 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @store = Store.where(@stores.where(statu: 0).first)
+    @store = Store.find_by(id: params[:store_id])
     @product = @store.products.find_by(id: params[:id])
     @product.quantity -= 1
-    @product.update(product_params)
+    if @product.update(product_params)
+      redirect_to @store
+    elsif 
+      render :edit
+    end
   end
 
   def destroy
     @store = Store.find_by(id: params[:store_id])
     @product = @store.products.find_by(id: params[:id])
-    @product.destroy
+    if @product.destroy
+      redirect_to @store
+    end
   end
 
   private
   def product_params
-    params.require(:product).permit(:name, :price, :quantity, :size,:color, :model, :category)
+    params.require(:product).permit(:name, :price, :quantity, :size,:color, :model)
   end
 end
